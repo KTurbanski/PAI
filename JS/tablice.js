@@ -57,6 +57,10 @@ console.log(sortujCyfryPrawidlowo);
 // Utwórz formularz z loginem i hasłem, zapisz wynik w nagłówku h2, użytkownik podaje również kolor w jakim ma być wszystko wyświetlone
 
 
+// Tablica
+//Formularze, math, pętle, string, tablice
+
+
 
 
 

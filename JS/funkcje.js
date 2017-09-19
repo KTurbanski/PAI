@@ -17,12 +17,12 @@ var name = 'Janusz';
 */
 
 
-function poleobjetosc(szerokosc,dlugosc,wysokosc){
+/*function poleobjetosc(szerokosc,dlugosc,wysokosc){
     var pole = szerokosc * dlugosc;
     var objetosc = pole * wysokosc;
     var wynik = [pole, objetosc];
     return wynik;
-}
+}*/
 
 /*var poleProstokata = poleobjetosc(2,3,4)[0];
 console.log(poleProstokata);*/
