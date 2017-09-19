@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <form action="">
+        Login: <input type="text" name="login" id="login"> <br>
+        Hasło: <input type="password" name="haslo" id="haslo"> <br>
+        Kolor(ang): <input type="text" name="kolor" id="color"> <br>
+    </form>
+    <br>
+    <button onclick="pokaz();">pokaz</button>
+    <h2 id="h2"></h2>
+    <script>
+        function pokaz(){
+            var login = document.getElementById('login').value;
+            var haslo = document.getElementById('haslo').value;
+            var color = document.getElementById('color').value;
+            var tab = [login, haslo, color];
+            document.getElementById('h2').style.color = tab[2];
+            document.getElementById('h2').textContent = 'Twoj login to: ' + tab[0] + ', a haslo to: ' + tab[1];
+        }
+    </script>
+</body>
+</html>
