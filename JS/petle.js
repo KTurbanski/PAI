@@ -95,11 +95,11 @@ elPrzycisk.onclick = function(){
 
 //********************* FOREACH *********************
 
-var tab = ['Anna', 'Jacek', 'Janusz', 'Adrian'];
+/*var tab = ['Anna', 'Jacek', 'Janusz', 'Adrian'];
 
-/*for (var i = 0; i < tab.length; i++){
+for (var i = 0; i < tab.length; i++){
     document.write(tab[i] + ' ');
-}*/
+}
 
 function p(a,b){
     document.write(a + b + '<br>');
@@ -112,7 +112,7 @@ function pokaz(wartosc,index){
     document.write(wartosc + '<br>') // wartość tablicy
 }
 
-tab.forEach(pokaz);
+tab.forEach(pokaz);*/
 
 
 
@@ -129,3 +129,15 @@ tab.forEach(pokaz);
 Użytkownik podaje z klawiatury login i hasło w formularzu, jeśli login to "Filip", a hasło "Okoń@1234" to na ekranie wyświetli w kolorze czerwonym poprawne hasło, jeśli hasło będzie błędne to w kolorze zielonym "Błędne hasło"
 Użytkownik ma 3 próby.
 */
+
+
+
+
+
+
+
+
+
+
+
+
