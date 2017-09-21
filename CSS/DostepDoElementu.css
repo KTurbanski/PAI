@@ -1,0 +1,35 @@
+* {
+    font-size: 20px;
+}
+
+.czerwony {
+    background-color: red;
+    color: aliceblue;
+    width: 25%;
+    border: solid;
+    border-style: ridge;
+    border-color: #d9a0ab;
+    text-align: center;
+}
+
+.niebieski {
+    background-color: blue;
+    width: 25%;
+    border: solid;
+    border-style: ridge;
+    border-color: lightblue;
+    text-align: center;
+}
+
+.grey {
+    background-color: grey;
+    width: 25%;
+    border: solid;
+    border-style: ridge;
+    border-color: lightgray;
+    text-align: center;
+}
+
+li{
+    list-style-type: none;
+}

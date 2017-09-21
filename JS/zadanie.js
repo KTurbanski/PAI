@@ -19,19 +19,23 @@
 //**********************ZADANIE DOMOWE*****************************
 /*
 Użytkownik podaje z klawiatury login i hasło w formularzu, jeśli login to "Filip", a hasło "Okoń@1234" to na ekranie wyświetli w kolorze czerwonym poprawne hasło, jeśli hasło będzie błędne to w kolorze zielonym "Błędne hasło"
-Użytkownik ma 3 próby.
 */
 
 var login = document.getElementById('login');
 var haslo = document.getElementById('haslo');
 var przycisk = document.getElementById('przycisk');
 var a = document.getElementById('a');
+var liczba = 0;
 
 przycisk.onclick = function (){
     if(login.value == 'Filip' && haslo.value == 'Okon@1234'){
         a.style.color = 'red';
         a.textContent = haslo.value;
     }else{
-        a.style.color = 'green';
-        a.textContent = 'Złe dane logowania';
+        if(liczba < 4){
+            a.style.color = 'green';
+            a.textContent = 'Złe dane logowania';
+            liczba++;
+        }else{alert('asdasd')};
+
     }};
