@@ -87,7 +87,7 @@ console.log(typeof(podajLiczbe));
 // 3.5 = 3.5
 // 3,5 = 3*/
 
-var liczba = 5;
+/*var liczba = 5;
 var tekst = "a";
 var przerwa = " ";
 
@@ -105,7 +105,7 @@ blok.innerHTML = dane;
 var imiee = prompt("Podaj swoje imie: ");
 var ble = ("Imię: " + imiee);
 var div = document.getElementById("imie");
-div.innerHTML = ble;
+div.innerHTML = ble;*/
 
 //poprawić
 
