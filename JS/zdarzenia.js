@@ -61,6 +61,24 @@ function blokuj(){
     this.disabled = true;
 }
 
+function haslo(){
+    if(elPass1.value != elPass2.value){
+        elKomunikat.textContent = 'Hasła są różne!';
+        elPass1.disabled = false;
+        elPass1.focus();
+        elPass1.value = '';
+        this.value = '';
+    }else{
+        this.disabled = true;
+        elKomunikat.textContent = '';
+    }
+}
+
+function blokuj2(){
+    elPass2.disabled = false;
+    elPass2.focus();
+    this.disabled = true;
+}
 
 
 //To samo do hasła
@@ -72,6 +90,8 @@ elNazwisko.addEventListener('blur', sprawdz);
 elLogin.addEventListener('blur', sprawdz);
 elMail1.addEventListener('blur', blokuj);
 elMail2.addEventListener('blur', mail);
+elPass1.addEventListener('blur', blokuj2);
+elPass2.addEventListener('blur', haslo);
 
 
 
