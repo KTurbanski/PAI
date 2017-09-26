@@ -61,7 +61,7 @@ przycisk.onclick = function (){
 
 // To samo z Foreach
 
-var elPrzycisk = document.getElementById('przycisk');
+/*var elPrzycisk = document.getElementById('przycisk');
 var elTvTab = document.getElementsByName('cosik');
 
 function cosik(elements,index){
@@ -71,7 +71,7 @@ function cosik(elements,index){
 
 elPrzycisk.onclick = function(){
     elTvTab.forEach(cosik);
-};
+};*/
 
 
 
