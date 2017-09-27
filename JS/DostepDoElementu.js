@@ -73,18 +73,34 @@ elPrzycisk.onclick = function(){
     elTvTab.forEach(cosik);
 };*/
 
+//**************  previousElementSibling, nextElementSibling  ****************
+var poczatekElement = document.getElementById('s2');
+var poprzedniElement = poczatekElement.previousElementSibling;
+var nastepnyElement = poczatekElement.nextElementSibling;
+
+poczatekElement.className = 'niebieski';
+poprzedniElement.className = 'niebieski';
+nastepnyElement.className = 'niebieski';
+
+//**************  firstElementChild, lastElementChild  ****************
+
+var lista = document.getElementsByTagName('ul')[1]; // żeby brało tylko auta
+//console.log(lista);
+var pierwszy = lista.firstElementChild;
+var ostatni = lista.lastElementChild;
+
+pierwszy.setAttribute('class', 'grey');
+ostatni.setAttribute('class', 'grey');
 
 
+//*********************************************************************************
 
+//Zmień pierwszy element input na button i przypisz wartość wyślij
 
+var input = document.getElementsByTagName('input')[0];
+input.setAttribute('type', 'button');
+input.setAttribute('value', 'Wyślij');
 
-
-
-
-
-
-
-
-
-
-
+// tekst www łączy ze stroną zsk.poznan.pl
+var a = document.getElementsByTagName('a')[0];
+a.setAttribute('href', 'http://www.zsk.poznan.pl'); // zamienia na odnościk

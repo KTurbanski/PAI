@@ -80,11 +80,87 @@ function blokuj2(){
     this.disabled = true;
 }
 
+function sprawdzRegulamin(){
+    if (elRegulamin.checked){
+        elPrzycisk.disabled = false;
+    }else{
+        elPrzycisk.disabled = true;
+    }
+}
 
-//To samo do hasła
+function odblokuj(){
+    var zablokowane = document.getElementsByTagName('input');
+        if(zablokowane.length > 0){
+            for(var i=0; i < zablokowane.length; i++){
+                if(zablokowane[i].disabled){
+                    zablokowane[i].disabled = false;
+                }
+            }
+            console.log(zablokowane);
+        }
+}
+// wersja pedała    -      nie działa
+/*function odblokuj2(){
+    var zablokowane = document.querySelectorAll('input[disabled]');
+            for(var i=0; i < zablokowane.length; i++){
+                    zablokowane[i].disabled = false;
+            }
+}*/
 
+function wyslij(){
+    document.write('<div>')
+    document.write('Imię:' + elImie.value + '<br>')
+    document.write('Nazwisko:' + elNazwisko.value + '<br>')
+    document.write('Login:' + elLogin.value + '<br>')
+    document.write('Mail:' + elMail1.value + '<br>')
+    document.write('Hasło:' + elPass1.value + '<br>')
+    document.write('Data:' + elData.value + '<br>')
+    document.write('</div>')
+}
 
+/*function wyslij(){  ***** NIE DZIAŁA *****
+    var pustePole = document.getElementsByTagName('input');
+            for(var i=0; i < pustePole.length; i++){
+                console.log(i);
+                if(pustePole[i] == ''){
+                    alert('debil');
+                }else{
+                    document.write('<div>')
+                    document.write('Imię:' + elImie.value + '<br>')
+                    document.write('Nazwisko:' + elNazwisko.value + '<br>')
+                    document.write('Login:' + elLogin.value + '<br>')
+                    document.write('Mail:' + elMail1.value + '<br>')
+                    document.write('Hasło:' + elPass1.value + '<br>')
+                    document.write('Data:' + elData.value + '<br>')
+                    document.write('</div>')
+                }
+            }
+}*/
 
+function sprawdzPuste(){
+    var puste = false;
+    var input = document.querySelectorAll('input');
+        for(var i=1; i<input.length; i++){
+            if(input[i].value == ''){
+                puste = true;
+                break;
+            }
+        }
+    if(puste){
+        elKomunikat.textContent = 'Wypełnij wszystkie pola';
+    }else{
+        document.write('<div>')
+        document.write('Imię:' + elImie.value + '<br>')
+        document.write('Nazwisko:' + elNazwisko.value + '<br>')
+        document.write('Login:' + elLogin.value + '<br>')
+        document.write('Mail:' + elMail1.value + '<br>')
+        document.write('Hasło:' + elPass1.value + '<br>')
+        document.write('Data:' + elData.value + '<br>')
+        document.write('</div>')
+    }
+}
+
+// wywołania funkcji
 elImie.addEventListener('blur', sprawdz);
 elNazwisko.addEventListener('blur', sprawdz);
 elLogin.addEventListener('blur', sprawdz);
@@ -92,10 +168,9 @@ elMail1.addEventListener('blur', blokuj);
 elMail2.addEventListener('blur', mail);
 elPass1.addEventListener('blur', blokuj2);
 elPass2.addEventListener('blur', haslo);
-
-
-
-
+elRegulamin.addEventListener('change', sprawdzRegulamin);
+elPopraw.addEventListener('click', odblokuj);
+elPrzycisk.addEventListener('click', sprawdzPuste);
 
 
 
