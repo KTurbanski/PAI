@@ -2,8 +2,10 @@
 
 //Wytażenia regularne
 
+/*
 var text = 'Zespół Szkół Komunikacji.pl';
 var text2 = '52-252';
+*/
 
 //var regEx = /Szkół/; // true
 //var regEx = /szkół/; // false
@@ -13,7 +15,7 @@ var text2 = '52-252';
 //var regEx = /^Szkół$/i; // /^ - zaczyna i kończy na tym // false
 //var regEx = /^[a-z]$/; // czy coś z przedziału się znajduje // małe
 //var regEx = /^[A-Z]$/; // czy coś z przedziału się znajduje // duże
-//var regEx = /^[A-z]$/; // czy coś z przedziału się znajduje // małe i duże
+//var regEx = /^[A-z]$/; // czy coś z przedziału się znajduje // małe i duże // niefajne bo bierze też znaki złe i niedobre
 //var regEx = /[ąęćźżółńś][a-z]$/; // polskie znaki
 //var regEx = /[ąęćźżółńś]|[a-z]$/; // polskie lub nie polskie znaki (OR = |)
 //var regEx = /^[ąęćźżółńś][a-z]$/; // polskie znaki // musi się zaczynać od znaku polskiego
@@ -42,14 +44,56 @@ var text2 = '52-252';
 //var regEx  = /\S/; // negacja tego co wyżej (duże S)
 //var regEx  = /(test){1}/; // sprawdza czy jest "test"
 //var regEx  = /(test){2}/; // sprawdza czy jest "testtest" // muszą być obok siebie
-//var regEx = /^[0-9]{2}-[0-9]{3}$/ //kod pocztowy
-//var regEx = /^\d{2}-\d{3}$/ //kod pocztowy
+//var regEx = /^[0-9]{2}-[0-9]{3}$/; //kod pocztowy
+//var regEx = /^\d{2}-\d{3}$/; //kod pocztowy
 
 
-var sprawdź = regEx.test(text2);
-console.log(sprawdź);
+//var sprawdź = regEx.test(text2);
+//console.log(sprawdź);
 
 
-użytownik podaje z klawiatury(formularz) kod pocztowy i nazwę miasta, sprawdź czy kod jest prawidłowy jeśli tak, to na ekranie w bloku wyświetl
+/*użytownik podaje z klawiatury(formularz) kod pocztowy i nazwę miasta, sprawdź czy kod jest prawidłowy jeśli tak, to na ekranie w bloku wyświetl
 Kod pocztowy:
-Miasto:
+Miasto:*/
+
+/*var kodPocztowy = document.getElementById('a');
+var miasto = document.getElementById('b');
+var przycisk = document.getElementById('przycisk');
+var div = document.getElementById('wynik');
+
+var kodPocztowyWzor = /^\d{2}-\d{3}$/; //kod pocztowy
+var miastoWzor = /[ąęćźżółńś]|[a-z]{3,15}$/; //miasto
+
+function SprawdzKodPocztowy(){
+    if(kodPocztowyWzor.test(kodPocztowy.value)){
+            if(miastoWzor.test(miasto.value)){
+                document.write('<div>')
+                document.write('Kod pocztowy: ' + kodPocztowy.value + '<br>')
+                document.write('Miasto: ' + miasto.value + '<br>')
+                document.write('</div>')
+            }else{
+                div.style.color = 'red';
+                div.textContent = 'Nie ma takiego miasta';
+                miasto.textContent = '';
+                miasto.focus();
+            }
+    }else{
+        div.style.color = 'red';
+        div.textContent = 'Zły kod pocztowy';
+        kodPocztowy.focus();
+    }
+}
+
+przycisk.addEventListener('click', SprawdzKodPocztowy);*/
+
+var regEx2 = /\w{1,}\.mp3/g;
+//var regEx2 = /\w+\.mp3/g;
+var text1 = 'plik@mp3 arkusz.csv szkola.mp3 tekst.mp3';
+//var sprawdz1 = regEx2.test(text1);
+var sprawdz1 = text1.match(regEx2);
+document.write(sprawdz1);
+
+
+
+
+
