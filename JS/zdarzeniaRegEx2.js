@@ -7,30 +7,22 @@ var elPass1 = document.getElementById('pass1');
 var elPass2 = document.getElementById('pass2');
 var elData = document.getElementById('data');
 var elRegulamin = document.getElementById('regulamin');
-var elPopraw = document.getElementById('popraw');
 var elPrzycisk = document.getElementById('przycisk');
+var elPopraw = document.getElementById('popraw');
 var elKomunikat = document.getElementById('komunikat');
 
 elKomunikat.style.color = 'red';
 
-var regImie = /^[a-ząęćźżółńś]{2,15}$/i; // imie
-var regNazwisko = /^[a-ząęćźżółńś]{2,20}(\-[a-ząęćźżółńś]{2,20})?$/i; // nazwisko może być dwuczłonowe
-var regLogin = /^[a-z0-9]{1}[\w\.\-]{3,25}[a-z0-9]{1}$/i; // login // bazowane na wp.pl
-//var regMail = /^[a-z0-9]{6,30}\@[a-z0-9]{2,12}\.[a-z]{2,3}$/i; // dopracować
-
-var regMail = /^[a-z]{1}[\w|\.|\-]{0,30}@(\w{1,20}\.){1,3}[a-z]{1,3}$/i;
+var regImie = /^[a-ząęćźżńłó]{2,16}$/i;
+var regNazwisko = /^[a-ząężźćńół]{2,20}(\-[a-ząężźćńół]{2,20})?$/i;
+var regLogin = /^[a-z0-9]{1}[\w\.\-]{1,25}[a-z0-9]{1}$/i;
+var regMail = /^[a-z0-9]{1}[\w|\.|\-]{0,30}[a-z0-9]@(\w{1,20}\.){1,3}[a-z]{1,3}$/i;
 //bezpieczne hasło: małe i duże litery, cyfry, znak specjalny
 var regPass = /^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W\_]).{8,35})$/;
 
-
-
-
-
-
-
-function sprawdzImie (){
+function sprawdzImie() {
     var sprawdz = regImie.test(elImie.value);
-      if(sprawdz){
+      if (sprawdz){
         elKomunikat.textContent = '';
     }else{
         elKomunikat.textContent = 'Błędne imię';
@@ -38,9 +30,9 @@ function sprawdzImie (){
     }
 }
 
-function sprawdzNazwisko (){
+function sprawdzNazwisko() {
     var sprawdz = regNazwisko.test(elNazwisko.value);
-      if(sprawdz){
+      if (sprawdz){
         elKomunikat.textContent = '';
     }else{
         elKomunikat.textContent = 'Błędne nazwisko';
@@ -48,16 +40,15 @@ function sprawdzNazwisko (){
     }
 }
 
-function sprawdzLogin (){
+function sprawdzLogin() {
     var sprawdz = regLogin.test(elLogin.value);
-      if(sprawdz){
+      if (sprawdz){
         elKomunikat.textContent = '';
     }else{
-        elKomunikat.textContent = 'Błędne login';
+        elKomunikat.textContent = 'Błędny login';
         elLogin.focus();
     }
 }
-
 
 function mail (){
     if (elMail1.value != elMail2.value){
@@ -73,8 +64,7 @@ function mail (){
     }
 }
 
-
-function haslo(){
+function pass (){
     if (elPass1.value != elPass2.value){
         elKomunikat.textContent = 'Hasła są różne';
         elPass1.disabled = false;
@@ -88,13 +78,6 @@ function haslo(){
     }
 }
 
-function sprawdzRegulamin(){
-    if (elRegulamin.checked){
-        elPrzycisk.disabled = false;
-    }else{
-        elPrzycisk.disabled = true;
-    }
-}
 
 function blokuj (){
     sprawdz = regMail.test(elMail1.value);
@@ -108,6 +91,10 @@ function blokuj (){
        elMail1.focus();
 
     }
+
+
+
+}
 
 function blokujPass (){
     var sprawdz = regPass.test(elPass1.value);
@@ -123,7 +110,16 @@ function blokujPass (){
 
 }
 
-function odblokuj() {
+function sprawdzRegulamin() {
+    if (elRegulamin.checked){
+        elPrzycisk.disabled = false;
+    } else {
+        elPrzycisk.disabled = true
+    }
+}
+
+
+function odblokuj1() {
     var zablokowane = document.querySelectorAll('input[disabled]');
     if (zablokowane.length > 0){
         for (var i=0; i < zablokowane.length; i++){
@@ -133,44 +129,42 @@ function odblokuj() {
     }
 }
 
-function sprawdzPuste(){
+function wyslij() {
     var puste = false;
-    var input = document.querySelectorAll('input');
-        for(var i=1; i<input.length; i++){
-            if(input[i].value == ''){
-                puste = true;
-                break;
-            }
+    var pola = document.querySelectorAll('input');
+    for (var i=0; i<pola.length; i++){
+        if (pola[i].value == ''){
+            puste = true;
+            break;
         }
-    if(puste){
-        elKomunikat.textContent = 'Wypełnij wszystkie pola';
-    }else{
-        document.write('<div>')
-        document.write('Imię:' + elImie.value + '<br>')
-        document.write('Nazwisko:' + elNazwisko.value + '<br>')
-        document.write('Login:' + elLogin.value + '<br>')
-        document.write('Mail:' + elMail1.value + '<br>')
-        document.write('Hasło:' + elPass1.value + '<br>')
-        document.write('Data:' + elData.value + '<br>')
-        document.write('</div>')
     }
+
+    if (puste){
+        elKomunikat.textContent = 'Wypełnij wszystkie pola';
+    } else {
+    document.write('<div>');
+    document.write('Imię: ' + elImie.value + '<br>');
+    document.write('Nazwisko: ' + elNazwisko.value + '<br>');
+    document.write('Login: ' + elLogin.value + '<br>');
+    document.write('Mail: ' + elMail1.value + '<br>');
+    document.write('Data urodzenia: ' + elData.value + '<br>');
+    document.write('</div>');
+}
 }
 
-// wywołania funkcji
+
 elImie.addEventListener('blur', sprawdzImie);
 elNazwisko.addEventListener('blur', sprawdzNazwisko);
 elLogin.addEventListener('blur', sprawdzLogin);
 elMail1.addEventListener('blur', blokuj);
-elMail2.addEventListener('blur', mail);
 elPass1.addEventListener('blur', blokujPass);
-elPass2.addEventListener('blur', haslo);
+elMail2.addEventListener('blur', mail);
+elPass2.addEventListener('blur', pass);
 elRegulamin.addEventListener('change', sprawdzRegulamin);
-elPopraw.addEventListener('click', odblokuj);
-elPrzycisk.addEventListener('click', sprawdzPuste);
+//elPopraw.addEventListener('click', odblokuj);
+elPopraw.addEventListener('click', odblokuj1);
+elPrzycisk.addEventListener('click', wyslij);
 
 
-
-
-
-
-
+/*zad.dom.
+Przy haśle wyświetl czy hasło jest: słabe, dobre, silne. Informacja zwrotna ma być obrazkiem. Kolor zielony silne hasło, pomarańczowy dobre hasło, czerwony słabe hasło. Można wykorzystać progres bar*/
